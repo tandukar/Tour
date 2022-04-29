@@ -42,8 +42,10 @@
 <body>
 
 
+
     <div class="login-form">
-        <h1>Register</h1>
+        <h1>{% block title%} Register{% endblock%}</h1> {% block content%}
+        <!-- This will be used when base html is implemented -->
 
         <div class="form">
             <form method="POST">
@@ -57,6 +59,8 @@
                 <button>Register</button>
 
             </form>
+        </div>
+        {% endblock%}
 </body>
 
 </html>
