@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    {% if request.user.is_authenticated %}
+
+    <p>profile: {{request.user}}</p>
+    <a href="{% url 'logout'%}">Logout</a> {%else %}
+
+    <p>profile: Not Logged in</p>
+
+    <a href="{% url 'login'%}">Login</a>
+    <a href="{% url 'register'%}">Register</a> {%endif%}
+
+    <hr>
+    <h1>Packages</h1>
+    {% for post in object_list %}
+    <hr>
+    <br> {% if post.pack_img%}
+    <img src=" {{post.pack_img.url }}" width="400px"><br> {%endif%}
+    <b><a href="{% url 'pack_detailView' post.pk %}">{{post.title}}</a></b>
+    <br> Description: A Trip to {{post.title}}, for {{post.days} days<a href="{% url 'pack_detailView' post.pk %}">Read more...</a>
+
+    <br> Days: <b>{{post.days}}</b>
+    <br> <b>Price: Rs. {{post.price}}</b>
+    <br> <b>Province:  {{post.Provinces}}</b>
+    <br><b>Hoster:</b> {{post.creator}}
+    <br> {% endfor%}
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <p>profile: {{request.user}}</p>
+    <a href="{% url 'homeView'%}">Back</a>
+    <br> {% if post.pack_img%}
+    <img src=" {{post.pack_img.url }}" width="400px"><br> {%endif%}
+    <h1>{{post.title}}</h1>
+    <hr>
+    <br>{{post.body | safe }}
+    <br><b>Province:</b> {{post.Provinces}}
+    <br> Days: <b>{{post.days}}</b>
+    <br> <b>Price: Rs. {{post.price}}</b>
+    <br><b>Hoster:</b> {{post.creator}}
+    <br><br><br>
+    <a href="{% url 'enrollView' post.pk %}"><button type="button">Enroll</button></a>
+    <hr> {{comments.comments}}
+
+
+</body>
+
+</html>

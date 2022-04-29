@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .login-form {
+        width: 500px;
+        padding: 10% 0 0;
+        margin: auto;
+        text-align: center;
+    }
+    
+    .form {
+        position: relative;
+        z-index: 1;
+        background: #FFFFFF;
+        max-width: 360px;
+        margin: 0 auto 100px;
+        padding: 45px;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+    
+    button {
+        font-family: "Lato", sans-serif;
+        background: #262725;
+        width: 70%;
+        border: 0;
+        padding: 15px;
+        color: #FFFFFF;
+        font-size: 14px;
+        cursor: pointer;
+    }
+</style>
+
+
+<body>
+
+
+    <div class="login-form">
+        <h1>Register</h1>
+
+        <div class="form">
+            <form method="POST">
+                {%csrf_token%}
+                <p><label>{{ form.username.label }}</label> {{ form.username }}</p>
+
+                <p><label>{{ form.password1.label }}</label> {{ form.password1 }}</p>
+                <p><label>{{ form.password2.label }}</label> {{ form.password2 }}</p>
+
+
+                <button>Register</button>
+
+            </form>
+</body>
+
+</html>

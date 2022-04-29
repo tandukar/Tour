@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            height: 1000px;
+            width: 200px;
+            background-color: #f1f1f1;
+        }
+        
+        li a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+        
+        li a.active {
+            background-color: #2f83bb;
+            color: white;
+        }
+        
+        li a:hover:not(.active) {
+            background-color: rgba(185, 186, 189, 0.678);
+            color: white;
+        }
+        
+        .column {
+            float: left;
+            width: 20%;
+        }
+        /* Clear floats after the columns */
+        
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        .dash {
+            text-align: center;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    {% if user.is_superuser %}
+    <div class="row">
+        <div class="column">
+            <ul>
+                <li class="dash"><b>Dash Board</b></li>
+                <br>
+                <p>profile: {{request.user}}</p>
+                <li><a class="active" href="#home">Home</a></li>
+                <li><a href="#something">something</a></li>
+                <li><a href="#something">something</a></li>
+                <li><a href="{%url 'logout'%}">logout</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <h1>Add-Packages</h1>
+            <form method="POST" enctype="multipart/form-data">
+                {%csrf_token%} {{form.media}} {{form.as_p}}
+                <button>Add</button>
+            </form>
+        </div>
+    </div>
+    <hr> {%else%}
+    <h1>you are not allowed here</h1>
+    <a href="{%url 'homepage'%}">Redirect</a>{%endif%}
+</body>
+
+</html>
