@@ -26,14 +26,22 @@ class Post(models.Model):
     Provinces = models.CharField(max_length=255, null=False)
     pack_img = models.ImageField(null = True, blank=True, upload_to="pacImages/")
    
-
-
     def __str__(self):
         return self.title + ' | '+ str(self.creator) 
 
     
     def get_absolute_url(self):
         return reverse('homeView')
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, related_name = "comments", on_delete = models.CASCADE)
+    name = models.CharField(max_length=50)
+    body = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '%s - %s' %(self.post.title, self.name)
 
 
    

@@ -25,7 +25,12 @@
     <br><b>Hoster:</b> {{post.creator}}
     <br><br><br>
     <a href="{% url 'enrollView' post.pk %}"><button type="button">Enroll</button></a>
-    <hr> {{comments.comments}}
+    <hr>
+    <h2>Comments..</h2>
+    {% if not post.comments.all %} Be the first one to comment<a href=''> Comment</a> {%else%} {% for comment in post.comments.all %}
+    <small>{{comment.name}}-{{comment.date_added}}</small>, <br> <strong> {{comment.body}}</strong> <br><br><br>{%endfor%}{%endif%}
+    <hr>
+
 
 
 </body>
