@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        ul {
+        .dashA {
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -45,7 +45,7 @@
             clear: both;
         }
         
-        .dash {
+        .dashB {
             text-align: center;
             font-size: 25px;
         }
@@ -56,8 +56,8 @@
     {% if user.is_superuser %}
     <div class="row">
         <div class="column">
-            <ul>
-                <li class="dash"><b>Dash Board</b></li>
+            <ul class="dashA">
+                <li class="dashB"><b>Dash Board</b></li>
                 <br>
                 <p>profile: {{request.user}}</p>
                 <li><a class="active" href="#home">Home</a></li>
