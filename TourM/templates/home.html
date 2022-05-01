@@ -27,7 +27,7 @@
     <br> {% if post.pack_img%}
     <img src=" {{post.pack_img.url }}" width="400px"><br> {%endif%}
     <b><a href="{% url 'pack_detailView' post.pk %}">{{post.title}}</a></b>
-    <br> Description: A Trip to {{post.title}}, for {{post.days} days<a href="{% url 'pack_detailView' post.pk %}">Read more...</a>
+    <br> Description: A Trip to {{post.title}}, for {{post.days}} days<a href="{% url 'pack_detailView' post.pk %}">Read more...</a>
 
     <br> Days: <b>{{post.days}}</b>
     <br> <b>Price: Rs. {{post.price}}</b>
