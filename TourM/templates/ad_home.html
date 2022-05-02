@@ -35,7 +35,7 @@
         
         .column {
             float: left;
-            width: 20%;
+            width: 13%;
         }
         /* Clear floats after the columns */
         
@@ -61,7 +61,7 @@
                 <br>
                 <p>profile: {{request.user}}</p>
                 <li><a class="active" href="#home">Home</a></li>
-                <li><a href="#something">something</a></li>
+                <li><a href="{%url 'infoView'%}">info</a></li>
                 <li><a href="#something">something</a></li>
                 <li><a href="{%url 'homepage'%}">back</a></li>
                 <li><a href="{%url 'logout'%}">logout</a></li>

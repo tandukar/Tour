@@ -13,6 +13,14 @@ class ad_homeView(CreateView):
     fields='__all__'
 
 
+class infoView(ListView):
+    model = Post
+    template_name = 'info.html'
+
+
+# def infoView(request):
+#     return render(request, 'info.html')
+
 class homeView(ListView):
     model = Post
     template_name = 'home.html'
