@@ -16,12 +16,14 @@ class ad_homeView(CreateView):
 
 
 
-# This is just for test
+# This is just for test-------------------------------------------
 
 class infoView(CreateView):
     model = Post
     template_name = 'info.html'
     fields='__all__'
+# Yeta sayad list view chainxa hola
+# -------------------------------------------
 
 
 class homeView(ListView):
