@@ -1,5 +1,2 @@
-
-db.sqlite3
 *.pyc
 *.sqlite3
-*.pyc
