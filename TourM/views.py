@@ -1,6 +1,8 @@
-from re import template
+
 from django.shortcuts import redirect, render
 from django.views.generic import ListView, DetailView,CreateView
+from django.contrib.auth import get_user_model
+
 
 from .models import Post
 
@@ -13,18 +15,11 @@ class ad_homeView(CreateView):
     fields='__all__'
 
 
-
-
-
-# This is just for test-------------------------------------------
-
-class infoView(CreateView):
-    model = Post
-    template_name = 'info.html'
-    fields='__all__'
-# Yeta sayad list view chainxa hola
-# -------------------------------------------
-
+def infoView(request):
+    User= get_user_model()
+    
+    users = User.objects.all()
+    return render(request,'info.html',{'Users': users})
 
 class homeView(ListView):
     model = Post
