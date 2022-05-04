@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.views.generic import ListView, DetailView,CreateView
 from requests import request
 from datetime import datetime #for date,sameer
+from TourM.models import Contact
 
 from .models import Post
 
@@ -32,6 +33,14 @@ class enroll(DetailView):
 
 
 def contact(request):
+    if request.method =="POST":
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        phone=request.POST.get('phone')
+        desc=request.POST.get('desc')
+        contact=Contact(name=name,email=email,phone=phone,desc=desc,date=datetime.today())
+        contact.save()
+        
     return render(request,'contact.html')
 
 
