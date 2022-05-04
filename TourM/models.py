@@ -46,4 +46,14 @@ class Comment(models.Model):
         return '%s - %s' %(self.post.title, self.name)
 
 
-   
+#creating the model for contact
+class Contact(models.Model):
+    name = models.CharField(max_length=25)
+    email = models.CharField(max_length=25)
+    phone = models.CharField(max_length=25)
+    desc =models.TextField()
+    date = models.DateTimeField()
+
+
+    def __str__(self) -> str:
+        return self.name
