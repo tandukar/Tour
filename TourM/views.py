@@ -16,10 +16,11 @@ class ad_homeView(CreateView):
 
 
 def infoView(request):
-    User= get_user_model()
-    
+    User= get_user_model()  
     users = User.objects.all()
-    return render(request,'info.html',{'Users': users})
+    users_count = User.objects.count()
+    post_count = Post.objects.count()
+    return render(request,'info.html',{'Users': users,'user_count':users_count,'post_count':post_count})
 
 class homeView(ListView):
     model = Post
