@@ -1,0 +1,42 @@
+#made by sameer
+Contact 
+
+
+<div class="img"> 
+  <img src="/static\images\bungee.jpg" class="d-block w-100 mx-0" alt="...">
+  <div>
+
+
+
+
+    
+
+
+<div class="container mb-3 ">
+    <h1 class="text-center">Contact Us</h1>
+    <form method="post" action="/contact">
+      {% csrf_token %} 
+      
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="enter ur name">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="ENter ur Email">
+          </div>
+        
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter ur phone number">
+          </div>
+    
+        <div class="form-group">
+          <label for="desc">Message about</label>
+          <textarea class="form-control" id="phone" rows="3" name="desc"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+</div>
+

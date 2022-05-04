@@ -24,8 +24,8 @@
     <!-- header section starts  -->
 
     <section class="header">
-
-        <a href="home.html" class="logo"> <img src="{% static 'images/logo.png' %}" height="100px"></a>
+    
+        <a href="{% url 'homepage'%}" class="logo"> <img src="{% static 'images/logo.png' %}" height="100px"></a>
 
         <nav class="navbar">
             {% if request.user.is_authenticated %}
@@ -309,7 +309,20 @@
 
 
 
-
+<section class='scroll-up' >
+    <div class="image " style=" align-items: center";>
+      <a href="{% url 'homepage'%}"> <button 
+        type="button"
+        class="btn btn-danger btn-floating btn-lg"
+        id="btn-back-to-top"
+        
+        >
+  <i class="fas fa-arrow-up"></i>
+</button>
+</style>
+</a>
+    </div>
+</section>
 
 
 

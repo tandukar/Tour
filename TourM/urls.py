@@ -8,5 +8,5 @@ urlpatterns = [
     path('details/<int:pk>', pack_detailView.as_view(), name="pack_detailView"),
     path('enroll/<int:pk>', enroll.as_view(), name="enrollView"),
     path('',views.homepage, name="homepage"),
-  
+    path('contact/', views.contact, name="contact"),#sameer update
 ]

@@ -1,6 +1,8 @@
 from re import template
 from django.shortcuts import redirect, render
 from django.views.generic import ListView, DetailView,CreateView
+from requests import request
+from datetime import datetime #for date,sameer
 
 from .models import Post
 
@@ -27,6 +29,10 @@ class pack_detailView(DetailView):
 class enroll(DetailView):
     model = Post
     template_name = 'enroll.html'
+
+
+def contact(request):
+    return render(request,'contact.html')
 
 
 def homepage(request):
