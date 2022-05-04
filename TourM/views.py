@@ -10,7 +10,7 @@ from .models import Post
 class ad_homeView(CreateView):
     model = Post
     template_name = 'ad_home.html'
-    
+    fields='__all__'
 
 
 class homeView(ListView):
