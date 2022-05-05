@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 from django.views.generic import ListView, DetailView,CreateView
 from django.contrib.auth import get_user_model
 
-
+from .forms import  PostForm
 from .models import Post
 
 
@@ -11,8 +11,9 @@ from .models import Post
 
 class ad_homeView(CreateView):
     model = Post
+    form_class = PostForm
     template_name = 'ad_home.html'
-    fields='__all__'
+    # fields='__all__'
 
 
 def infoView(request):

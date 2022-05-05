@@ -18,18 +18,18 @@ class Provinces(models.Model):
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=255)
-    creator =models.CharField(default='The company',max_length=255 )  
+    title = models.CharField(max_length=255) 
     body = RichTextField()
     days = models.PositiveIntegerField(validators=[MaxValueValidator(100),MinValueValidator(1)])
     price = models.IntegerField(default='',null=False)
-    Provinces = models.CharField(max_length=255, null=False)
+    Provinces = models.CharField(default='', max_length=255, null=False)
     Size = models.PositiveIntegerField(default='1', validators=[MaxValueValidator(100),MinValueValidator(1)])      #group size {if paxi availability add garne bhe useful}
     Hoster=models.CharField(max_length=255, null=False)
+    Accomodation= models.CharField(default='', max_length=255, null=False)
     pack_img = models.ImageField(null = True, blank=True, upload_to="pacImages/")
    
     def __str__(self):
-        return self.title + ' | '+ str(self.creator) 
+        return self.title 
 
     
     def get_absolute_url(self):
