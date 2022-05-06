@@ -5,62 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Register</title>
+    {% load static%}
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
 </head>
-<style>
-    .login-form {
-        width: 500px;
-        padding: 10% 0 0;
-        margin: auto;
-        text-align: center;
-    }
-    
-    .form {
-        position: relative;
-        z-index: 1;
-        background: #FFFFFF;
-        max-width: 360px;
-        margin: 0 auto 100px;
-        padding: 45px;
-        text-align: center;
-        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    }
-    
-    button {
-        font-family: "Lato", sans-serif;
-        background: #262725;
-        width: 70%;
-        border: 0;
-        padding: 15px;
-        color: #FFFFFF;
-        font-size: 14px;
-        cursor: pointer;
-    }
-</style>
 
 
-<body>
+<body style="background:url(' /static/images/bg.jpg ');  background-size: cover;background-position: center center; background-repeat: no-repeat" ; background-size: cover; ">
 
 
+    <div class="login-box ">
+        <h2>Register</h2>
+        <form method="POST ">
+            <div class="user-box ">
+                {%csrf_token%} {{form.as_p}}
 
-    <div class="login-form">
-        <h1>{% block title%} Register{% endblock%}</h1> {% block content%}
-        <!-- This will be used when base html is implemented -->
-
-        <div class="form">
-            <form method="POST">
-                {%csrf_token%}
-                <p><label>{{ form.username.label }}</label> {{ form.username }}</p>
-
-                <p><label>{{ form.password1.label }}</label> {{ form.password1 }}</p>
-                <p><label>{{ form.password2.label }}</label> {{ form.password2 }}</p>
-
-
-                <button>Register</button>
-
-            </form>
+                <button>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>Register
+            </button>
+            <h3>Have an Account? <a href=" {% url 'login'%} ">Sign in</a></h3>
+        </form>
+            
         </div>
-        {% endblock%}
 </body>
 
 </html>
