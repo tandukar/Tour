@@ -12,7 +12,6 @@ from django.contrib import messages
 
 class UserRegisterView(generic.CreateView):
     
-
     form_class=registerform
     template_name = 'registration/register.html'
     success_url = reverse_lazy('login')
