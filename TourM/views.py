@@ -20,8 +20,15 @@ def infoView(request):
     User= get_user_model()  
     users = User.objects.all()
     users_count = User.objects.count()
+   
+    return render(request,'info.html',{'Users': users,'user_count':users_count})
+
+def PackView(request):
+    model = Post
+    post = model.objects.all()
+   
     post_count = Post.objects.count()
-    return render(request,'info.html',{'Users': users,'user_count':users_count,'post_count':post_count})
+    return render(request,'ad_pack.html',{'Packages': post,'post_count':post_count})
 
 class homeView(ListView):
     model = Post

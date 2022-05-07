@@ -5,6 +5,7 @@ from .  views import ad_homeView, enroll, pack_detailView, homeView
 urlpatterns = [
     path('ad-home/', ad_homeView.as_view(), name="ad_homeView"),
     path('info/', views.infoView, name="infoView"),
+    path('packView/', views.PackView, name="PackView"),
     path('package/', homeView.as_view(), name="homeView"),
     path('details/<int:pk>', pack_detailView.as_view(), name="pack_detailView"),
     path('enroll/<int:pk>', enroll.as_view(), name="enrollView"),

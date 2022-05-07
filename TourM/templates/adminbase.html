@@ -23,19 +23,20 @@
 
             <a href="#" class="nav-link text-light pl-4"> profile: {{request.user}}</a>
             <li class="nav-item w-100">
-                <a href="{%url 'homepage'%}" class="nav-link text-light pl-4">Home</a>
+                <a href="{%url 'ad_homeView'%}" class="nav-link text-light pl-4">Home</a>
             </li>
 
-            <li class="nav-item w-100">
-                <a href="{%url 'infoView'%}" class="nav-link text-light pl-4">info</a>
-            </li>
+
             <li class="nav-item dropdown w-100">
-                <a href="#" class="nav-link dropdown-toggle text-light pl-4" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Service</a>
+                <a href="#" class="nav-link dropdown-toggle text-light pl-4" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Info</a>
                 <ul class="dropdown-menu w-100" aria-labelledby="navbarDropdown">
-                    <li><a href="#" class="dropdown-item text-light pl-4 p-2">Service 01</a></li>
-                    <li><a href="#" class="dropdown-item text-light pl-4 p-2">Service 02</a></li>
+                    <li><a href="{%url 'infoView'%}" class="dropdown-item text-light pl-4 p-2">info</a></li>
+                    <li><a href="{%url 'PackView'%}" class="dropdown-item text-light pl-4 p-2">Packages</a></li>
                     <li><a href="#" class="dropdown-item text-light pl-4 p-2">Service 03</a></li>
                 </ul>
+            </li>
+            <li class="nav-item w-100">
+                <a href="{%url 'homepage'%}" class="nav-link text-light pl-4">Back</a>
             </li>
             <li class="nav-item w-100">
                 <a href="{%url 'logout'%}" class="nav-link text-light pl-4">logout</a>
