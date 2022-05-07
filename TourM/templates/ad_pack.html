@@ -5,35 +5,32 @@
         <h3>Total Packages: {{ post_count }}</h3>
     </div>
 
-    <table class="table table-striped table-bordered table-sm">
-        <thread class="thread-dark">
-            <tr>
+    <h1>Packages</h1>
+    {% for post in Packages %}
+    <hr>
+    <br> {% if post.pack_img%}
+    <img src=" {{post.pack_img.url }}" width="400px"><br> {%endif%}
+    <b><a href="{% url 'pack_detailView' post.pk %}">{{post.title}}</a></b>
+    <br> Description: A Trip to {{post.title}}, for {{post.days}} days<a href="{% url 'pack_detailView' post.pk %}">Read more...</a>
 
-                <th>title</th>
-                <th>days</th>
-                <th>price</th>
-                <th>Size</th>
-                <th>Hoster</th>
-                <th>Accomodation</th>
-                <th>Provinces</th>
-                <th>Actions</th>
-            </tr>
-        </thread>
-        {% csrf_token %} {% for result in Packages %}
-        <tr>
+    <p> Days: <b>{{post.days}}</b> |
+        <b>Price:</b> Rs. {{post.price}}|
+        <b>Province: </b> {{post.Provinces}} |
+        <b>Hoster:</b> {{post.Hoster}} |
+        <b>Where you'll Stay:</b> {{post.Accomodation}} |
+        <b>Operated in:</b> English
+    </p>
+    <br>
+    <a href="{% url 'UpdatePost' post.pk %}"><span class="btn btn-success">Edit</span></a>
 
-            <td>{{result.title}}</td>
-            <td>{{result.days}}</td>
-            <td>{{result.price}}</td>
-            <td>{{result.Size}}</td>
-            <td>{{result.Hoster}}</td>
-            <td>{{result.Accomodation}}</td>
-            <td>{{result.Provinces}}</td>
-            <td><a href=""><span class="btn btn-success">Edit</span></a>
-                <a href=""><span class="btn btn-danger">Delete</span></a></td>
-        </tr>
-        {% endfor %}
-    </table>
-    {%else%} U SHALL NOT PASS{%endif%}
+    <a href="{% url 'DeletePost' post.pk %}"><span class="btn btn-danger">Delete</span></a>
+
+    <br> {% endfor%} {%else%}
+
+    <h1>you are not allowed here</h1>
+    <a href="{%url 'homepage'%}">Redirect</a>{%endif%}
+
+
+
 </section>
 {%endblock%}

@@ -1,0 +1,13 @@
+{%extends 'adminbase.html'%} {%block title%}YUpdate package{%endblock%} {%block content%} {% if user.is_superuser %}
+
+<h1>Update-Packages</h1>
+<div class="form-group">
+    <form method="POST" enctype="multipart/form-data">
+        {%csrf_token%} {{form.media}} {{form.as_p}}
+        <button class="btn btn-primary">Update</button>
+    </form>
+
+</div>
+<hr> {%else%}
+<h1>you are not allowed here</h1>
+<a href="{%url 'homepage'%}">Redirect</a>{%endif%} {%endblock%}

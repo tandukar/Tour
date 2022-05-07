@@ -1,9 +1,11 @@
 from django.urls import path
 from . import views
-from .  views import ad_homeView, enroll, pack_detailView, homeView
+from .  views import ad_homeView, enroll, pack_detailView, homeView,UpdatePostView, DeletePostView
 
 urlpatterns = [
     path('ad-home/', ad_homeView.as_view(), name="ad_homeView"),
+    path('details/edit/<int:pk>/', UpdatePostView.as_view(), name="UpdatePost"),
+    path('details/<int:pk>/delete', DeletePostView.as_view(), name="DeletePost"),
     path('info/', views.infoView, name="infoView"),
     path('packView/', views.PackView, name="PackView"),
     path('package/', homeView.as_view(), name="homeView"),

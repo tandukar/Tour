@@ -1,6 +1,7 @@
 
 from django.shortcuts import redirect, render
-from django.views.generic import ListView, DetailView,CreateView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView,CreateView, UpdateView, DeleteView
 from django.contrib.auth import get_user_model
 
 from .forms import  PostForm
@@ -15,6 +16,17 @@ class ad_homeView(CreateView):
     template_name = 'ad_home.html'
     # fields='__all__'
 
+
+class UpdatePostView(UpdateView):
+    model = Post
+    template_name = 'ad_editPack.html'
+    fields='__all__'
+
+class DeletePostView(DeleteView):
+    model = Post
+    template_name = 'delPost.html'
+    success_url = reverse_lazy('PackView')
+    
 
 def infoView(request):
     User= get_user_model()  

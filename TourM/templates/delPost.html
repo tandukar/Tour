@@ -1,0 +1,16 @@
+{%extends 'adminbase.html'%} {%block title%}Delete Packages{%endblock%} {%block content%} {% if user.is_superuser %}
+
+<h1>Delete-Packages</h1>
+
+
+
+<div class="form-group">
+    <form method="POST" enctype="multipart/form-data">
+        {%csrf_token%}<img src=" {{post.pack_img.url }}" width="400px"> {{post.body | safe}}
+        <button class="btn btn-danger">delete</button>
+    </form>
+
+</div>
+<hr> {%else%}
+<h1>you are not allowed here</h1>
+<a href="{%url 'homepage'%}">Redirect</a>{%endif%} {%endblock%}
