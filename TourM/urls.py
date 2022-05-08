@@ -9,6 +9,7 @@ urlpatterns = [
     path('enroll/<int:pk>', enroll.as_view(), name="enrollView"),
     path('',views.homepage, name="homepage"),
     path('contact/', views.contact, name="contact"),#sameer update.
-    path('cmt/', views.cmt, name="cmt"), #url for comment
+    path('post/', views.post, name="post"), #url where the user cmt on post
     path('comment/', AddCommentView.as_view(), name="add_comment"),
+    path('comment_on_post/', views.comment_on_post, name="add_comment"),
 ]

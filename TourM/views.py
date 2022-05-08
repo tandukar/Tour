@@ -1,11 +1,11 @@
-from re import template
-from xml.etree.ElementTree import Comment
+from django.urls import reverse_lazy
+from .forms import CommentForm
 from django.shortcuts import redirect, render
 from django.views.generic import ListView, DetailView,CreateView
 from requests import request
 from datetime import datetime #for date,sameer
 from TourM.models import Contact #importing the contact 
-
+#importing ccomment form 
 from .models import Post,Comment
 
 
@@ -45,12 +45,19 @@ def contact(request): #SAmeer DON le gareko
 
 class AddCommentView(CreateView):
      model = Comment
+     form_class = CommentForm
      template_name= 'add_comment.html'
-     fileds ='__all__'
-    
+     #fileds ='__all__'
+     def form_valid(self,form):
+         form.instance.post_id = self.kwargs['pk']
+         return super().form_valid(form)
+     success_url =reverse_lazy('home')#redirecting to the home page
 
-def cmt(request):
-    return render(request,'cmt.html')
+def post(request):
+    return render(request,'post.html')
+
+def comment_on_post(request):
+    return render(request,'comment_on_post.html')
 
 def homepage(request):
     return render(request, 'index.html')
