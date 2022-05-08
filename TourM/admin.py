@@ -7,5 +7,5 @@ admin.site.register(Post)
 admin.site.register(Provinces) 
 admin.site.register(Comment) 
 
-#registering the model in admin
+#registering the model in admin.
 admin.site.register(Contact)
