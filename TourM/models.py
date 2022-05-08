@@ -27,7 +27,10 @@ class Post(models.Model):
     Hoster=models.CharField(max_length=255, null=False)
     Accomodation= models.CharField(default='', max_length=255, null=False)
     pack_img = models.ImageField(null = True, blank=True, upload_to="pacImages/")
+    pack_img1 = models.ImageField(null = True, blank=True, upload_to="pacImages/")
     pack_img2 = models.ImageField(null = True, blank=True, upload_to="pacImages/")
+    pack_img3 = models.ImageField(null = True, blank=True, upload_to="pacImages/")
+    pack_img4 = models.ImageField(null = True, blank=True, upload_to="pacImages/")
     
     def __str__(self):
         return self.title 

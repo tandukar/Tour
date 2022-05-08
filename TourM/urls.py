@@ -11,6 +11,8 @@ urlpatterns = [
     path('package/', homeView.as_view(), name="homeView"),
     path('details/<int:pk>', pack_detailView.as_view(), name="pack_detailView"),
     path('enroll/<int:pk>', enroll.as_view(), name="enrollView"),
+    path('user_csv', views.user_csv, name="user_csv"),
+    path('user_pdf', views.user_pdf, name="user_pdf"),
     path('',views.homepage, name="homepage"),
     
    

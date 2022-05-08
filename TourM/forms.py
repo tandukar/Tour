@@ -4,11 +4,11 @@ from .models import Post , Provinces
 
 
 # choices =Provinces.objects.all().values_list('Provinces','Provinces')
-choices = [('province 1','province 1'),('province 2','province 2'),('province 3','province 3')]
+choices = [('province 1','province 1'),('province 2','province 2'),('province 3','province 3'),('province 4','province 4'),('province 5','province 5')]
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'Hoster', 'body', 'days', 'price','Provinces','Size','Accomodation' ,'pack_img')
+        fields = ('title', 'Hoster', 'body', 'days', 'price','Provinces','Size','Accomodation' ,'pack_img','pack_img1','pack_img2','pack_img3','pack_img4')
 
         widgets = {
             'title': forms.TextInput( attrs={'class': 'form-control'}),
