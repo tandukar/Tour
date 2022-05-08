@@ -90,12 +90,10 @@ def user_csv(request):
    User= get_user_model()  
    users = User.objects.all()
 
-
    writer.writerow(['User Name','First Name', 'Last Name', 'Email'])
 
 
    for user in users:
-
        writer.writerow([user.username, user.first_name, user.last_name, user.email])
 
    return response
