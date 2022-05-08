@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+{%extends 'base.html'%} {%block title%}Package details{%endblock%} {%block content%} {% load static%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
-    {% load static%}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
-    <link rel="stylesheet" type="text/css" href="{% static 'carousel.css' %}">
-    <title>Document</title>
+<link rel="stylesheet" type="text/css" href="{% static 'carousel.css' %}">
 
-</head>
 
-<body>
-
-    <p>profile: {{request.user}}</p>
-    <a href="{% url 'homeView'%}">Back</a>
+<section class="container">
 
 
     <h2>{{post.title}}</h2>
@@ -55,7 +43,7 @@
     <br> <b>Price: Rs. {{post.price}}</b>
     <br><b>Hoster:</b> {{post.creator}}
     <br><br><br>
-    <a href="{% url 'enrollView' post.pk %}"><button type="button">Enroll</button></a>
+    <a href="{% url 'enrollView' post.pk %}"><button class="btn btn-success"type="button">Enroll</button></a>
     <hr>
     <h2>Comments..</h2>
     {% if not post.comments.all %} Be the first one to comment<a href=''> Comment</a> {%else%} {% for comment in post.comments.all %}
@@ -64,8 +52,6 @@
 
 
     <script src="{% static 'carousel.js' %} "></script>
+</section>
 
-
-</body>
-
-</html>
+{%endblock%}
