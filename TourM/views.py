@@ -1,11 +1,12 @@
 from re import template
+from xml.etree.ElementTree import Comment
 from django.shortcuts import redirect, render
 from django.views.generic import ListView, DetailView,CreateView
 from requests import request
 from datetime import datetime #for date,sameer
 from TourM.models import Contact #importing the contact 
 
-from .models import Post
+from .models import Post,Comment
 
 
 # Create your views here.
@@ -39,10 +40,17 @@ def contact(request): #SAmeer DON le gareko
         phone=request.POST.get('phone')
         desc=request.POST.get('desc')
         contact=Contact(name=name,email=email,phone=phone,desc=desc,date=datetime.today())
-        contact.save()
-        
+        contact.save()       
     return render(request,'contact.html')
 
+class AddCommentView(CreateView):
+     model = Comment
+     template_name= 'add_comment.html'
+     fileds ='__all__'
+    
+
+def cmt(request):
+    return render(request,'cmt.html')
 
 def homepage(request):
     return render(request, 'index.html')

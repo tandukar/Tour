@@ -1,7 +1,7 @@
 from audioop import reverse
 from django.db import models
 from django.urls import reverse
-
+from .models import Comment
 from ckeditor.fields import RichTextField
 
 from django.core.validators import MaxValueValidator, MinValueValidator
