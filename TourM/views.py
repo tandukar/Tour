@@ -43,21 +43,6 @@ def contact(request): #SAmeer DON le gareko
         contact.save()       
     return render(request,'contact.html')
 
-class AddCommentView(CreateView):
-     model = Comment
-     form_class = CommentForm
-     template_name= 'add_comment.html'
-     #fileds ='__all__'
-     def form_valid(self,form):
-         form.instance.post_id = self.kwargs['pk']
-         return super().form_valid(form)
-     success_url =reverse_lazy('home')#redirecting to the home page
-
-def post(request):
-    return render(request,'post.html')
-
-def comment_on_post(request):
-    return render(request,'comment_on_post.html')
 
 def homepage(request):
     return render(request, 'index.html')
