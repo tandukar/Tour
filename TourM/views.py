@@ -98,7 +98,8 @@ class paymentView(CreateView):
 
   
 
-
+def seasons(request):
+    return render(request, 'seasons.html')
 
 def aboutus(request):
     return render(request, 'aboutus.html')
