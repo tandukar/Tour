@@ -62,6 +62,7 @@ class homeView(ListView):
     template_name = 'home.html'
    
 
+
 class pack_detailView(DetailView):
     model = Post
     template_name = 'pack_details.html'
@@ -103,6 +104,11 @@ class EnrollView(CreateView):
 
 def homepage(request):
     return render(request, 'index.html')
+
+
+
+def seasons(request):
+    return render(request, 'season.html')
 
 
 #Generate csv files.
