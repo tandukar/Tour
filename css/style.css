@@ -98,10 +98,8 @@ section {
 
 .header {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 2rem 9%;
+    top: 0; left:0; right:0;
+    padding: 1rem 9%;
     z-index: 1000;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -153,7 +151,7 @@ section {
    top: 0;
    left: 0;
    right: 0;
-   padding: 2rem 9%;
+   padding: 1rem 0;
    z-index: 1000;
    display: -webkit-box;
    display: -ms-flexbox;
@@ -174,8 +172,7 @@ section {
     z-index: 1000;
     background-color: var(--white);
     display: flex;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding: 1rem 0;
     box-shadow: var(--box-shadow);
     align-items: center;
     justify-content: space-between;

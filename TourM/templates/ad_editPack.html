@@ -1,6 +1,6 @@
-{%extends 'adminbase.html'%} {%block title%}Create a new package{%endblock%} {%block content%} {% if user.is_superuser %}
+{%extends 'adminbase.html'%} {%block title%}YUpdate package{%endblock%} {%block content%} {% if user.is_superuser %}
 
-<h1>Add-Packages</h1>
+<h1>Update-Packages</h1>
 <div class="form-group">
     <form method="POST" enctype="multipart/form-data">
         {%csrf_token%} {{form.media}} {{form.as_p}}

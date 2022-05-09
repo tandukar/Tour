@@ -1,15 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
+{%extends 'adminbase.html'%} {%block title%}information{%endblock%} {%block content%} {% if user.is_superuser %}
+<section class="p-4 my-container">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <div class="p-3 mb-2 bg-primary text-white container-fluid">
+        <h3>Total Users: {{ user_count }}</h3>
+    </div>
 
-<body>
-    yay information
-</body>
 
-</html>
+    <table class="table table-striped table-bordered table-sm">
+        <thread class="thread-dark">
+            <tr>
+
+                <th>User Name</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thread>
+        {% csrf_token %} {% for result in Users %}
+        <tr>
+
+            <td>{{result.username}}</td>
+            <td>{{result.first_name}}</td>
+            <td>{{result.last_name}}</td>
+            <td>{{result.email}}</td>
+            <td><a href=""><span class="btn btn-success">Edit</span></a>
+                <a href=""><span class="btn btn-danger">Delete</span></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {%else%} U SHALL NOT PASS{%endif%}
+</section>
+{%endblock%}

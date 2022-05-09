@@ -1,252 +1,172 @@
-<!DOCTYPE html>
-<html lang="en">
+{%extends 'base.html'%} {%block title%}Home{%endblock%} {%block content%} {% load static%}
+<section class="home">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
-    {% load static%}
+    <div class="swiper home-slider">
 
-    <!-- swiper css link  -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+        <div class="swiper-wrapper">
 
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+            <div class="swiper-slide slide" style="background:url(' /static/images/home-slide-1.jpg ') no-repeat">
+                <div class="content">
+                    <span>explore, discover, travel</span>
+                    <h3>travel around the world</h3>
+                    <a href="{% url 'homeView'%} " class=" btn ">discover more</a>
+                </div>
+            </div>
 
-    <!-- custom css file link  -->
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+            <div class="swiper-slide slide " style="background:url( ' /static/images/home-slide-2.jpg ') no-repeat ">
+                <div class="content ">
+                    <span>explore, discover, travel</span>
+                    <h3>discover the new places</h3>
+                    <a href="{% url 'homeView'%} " class=" btn ">discover more</a>
+                </div>
+            </div>
 
-</head>
+            <div class="swiper-slide slide " style="background:url( ' /static/images/home-slide-3.jpg ') no-repeat ">
+                <div class="content ">
+                    <span>explore, discover, travel</span>
+                    <h3>make your tour worthwhile</h3>
+                    <a href="{% url 'homeView'%} " class="btn ">discover more</a>
+                </div>
+            </div>
 
-<body>
-
-    <!-- header section starts  -->
-
-    <section class="header">
-
-        <a href="home.html" class="logo"> <img src="{% static 'images/logo.png' %}" height="100px"></a>
-
-        <nav class="navbar">
-            {% if request.user.is_authenticated %}
-            <a href="{% url 'homepage'%}">Home</a>
-            <a href="{% url 'homeView'%}">packages</a>
-            <a href="{% url 'edit_profile'%}">Profile</a>
-            <a href="#">Gallery</a> {% if user.is_superuser %}
-
-
-            <a href="{% url 'ad_homeView'%}">Admin</a>{%endif%}
-            <a href="{% url 'logout'%}">Logout</a>{%else%}
-            <a href="{% url 'homepage'%}">Home</a>
-            <a href="{% url 'homeView'%}">packages</a>
-            <a href="#">Gallery</a>
-            <a href="{% url 'login'%}">Login</a>
-            <a href="{% url 'register'%}">Register</a> {%endif%}
-        </nav>
-        <div class="icons">
-            <!-- <i class="fas fa-search" id="search-btn"></i> -->
-            <i class="fas fa-user" id="login-btn"></i>
         </div>
 
-        <div id="menu-btn" class="fas fa-bars"></div>
-
-
-    </section>
-
-    <!-- header section ends -->
-    <!--login section-->
-    <div class="login-form-container">
-
-        <i class="fas fa-times" id="form-close"></i>
-
-        <form action="">
-            <h3>login</h3>
-            <input type="email" class="box" placeholder="enter your email">
-            <input type="password" class="box" placeholder="enter your password">
-            <input type="submit" value="login now" class="btn">
-            <input type="checkbox" id="remember">
-            <label for="remember">remember me</label>
-            <p>forget password? <a href="#">click here</a></p>
-            <p>don't have an account? <a href="#">register now</a></p>
-        </form>
+        <div class="swiper-button-next "></div>
+        <div class="swiper-button-prev "></div>
 
     </div>
-    <!--login section ends-->
 
-    <!--Signup section-->
+</section>
 
+<!-- home section ends -->
 
+<!-- services section starts  -->
 
-    <!-- home section starts  -->
+<section class="services ">
 
-    <section class="home">
+    <h1 class="heading-title "> our services </h1>
 
-        <div class="swiper home-slider">
+    <div class="box-container ">
 
-            <div class="swiper-wrapper">
-
-                <div class="swiper-slide slide" style="background:url(' /static/images/home-slide-1.jpg ') no-repeat">
-                    <div class="content">
-                        <span>explore, discover, travel</span>
-                        <h3>travel around the world</h3>
-                        <a href="{% url 'homeView'%} " class=" btn ">discover more</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide " style="background:url( ' /static/images/home-slide-2.jpg ') no-repeat ">
-                    <div class="content ">
-                        <span>explore, discover, travel</span>
-                        <h3>discover the new places</h3>
-                        <a href="{% url 'homeView'%} " class=" btn ">discover more</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide " style="background:url( ' /static/images/home-slide-3.jpg ') no-repeat ">
-                    <div class="content ">
-                        <span>explore, discover, travel</span>
-                        <h3>make your tour worthwhile</h3>
-                        <a href="{% url 'homeView'%} " class="btn ">discover more</a>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="swiper-button-next "></div>
-            <div class="swiper-button-prev "></div>
-
+        <div class="box ">
+            <img src="{% static 'images/icon-1.png' %} " alt=" ">
+            <h3>adventure</h3>
         </div>
 
-    </section>
-
-    <!-- home section ends -->
-
-    <!-- services section starts  -->
-
-    <section class="services ">
-
-        <h1 class="heading-title "> our services </h1>
-
-        <div class="box-container ">
-
-            <div class="box ">
-                <img src="{% static 'images/icon-1.png' %} " alt=" ">
-                <h3>adventure</h3>
-            </div>
-
-            <div class="box ">
-                <img src="{% static 'images/icon-2.png' %} " alt=" ">
-                <h3>tour guide</h3>
-            </div>
-
-            <div class="box ">
-                <img src="{% static 'images/icon-3.png' %} " alt=" ">
-                <h3>trekking</h3>
-            </div>
-
-            <div class="box ">
-                <img src="{% static 'images/icon-4.png' %} " alt=" ">
-                <h3>camp fire</h3>
-            </div>
-
-            <div class="box ">
-                <img src="{% static 'images/icon-5.png' %} " alt=" ">
-                <h3>off road</h3>
-            </div>
-
-            <div class="box ">
-                <img src="{% static 'images/icon-6.png' %} " alt=" ">
-                <h3>camping</h3>
-            </div>
-
+        <div class="box ">
+            <img src="{% static 'images/icon-2.png' %} " alt=" ">
+            <h3>tour guide</h3>
         </div>
 
-    </section>
-
-    <!-- services section ends -->
-
-    <!-- home about section starts  -->
-
-    <section class="home-about ">
-
-        <div class="image ">
-            <img src="{% static 'images/about-img.jpg' %} " alt=" ">
+        <div class="box ">
+            <img src="{% static 'images/icon-3.png' %} " alt=" ">
+            <h3>trekking</h3>
         </div>
 
-        <div class="content ">
-            <h3>about us</h3>
-            <p>We’ve been travelling the world for over 1 years, building a reputation for providing quality travel content that’s inspiring, engaging and informative. With all of our guides and features written and updated by a global network of expert
-                travel writers that includes some of the best names in the business.</p>
-            <a href="{% url 'homepage'%} " class="btn ">read more</a>
+        <div class="box ">
+            <img src="{% static 'images/icon-4.png' %} " alt=" ">
+            <h3>camp fire</h3>
         </div>
 
-    </section>
+        <div class="box ">
+            <img src="{% static 'images/icon-5.png' %} " alt=" ">
+            <h3>off road</h3>
+        </div>
 
-    <!-- home about section ends -->
+        <div class="box ">
+            <img src="{% static 'images/icon-6.png' %} " alt=" ">
+            <h3>camping</h3>
+        </div>
 
-    <!-- home packages section starts  -->
+    </div>
 
-    <!-- Might not need this part  -->
-    <section class="home-packages ">
+</section>
 
-        <h1 class="heading-title "> our packages </h1>
+<!-- services section ends -->
 
-        <div class="box-container ">
+<!-- home about section starts  -->
 
-            <div class="box ">
-                <div class="image ">
-                    <img src="{% static 'images/img-1.jpg' %} " alt=" ">
-                </div>
-                <div class="content ">
-                    <h3>Janakpur</h3>
-                    <p>Janakpurdham or Janakpur is a sub-metropolitan city in Dhanusa District, Madhesh Province, Nepal. The city is a hub for religious and cultural tourism.</p>
-                    <a href="{% url 'homeView'%} " class="btn ">book now</a>
-                </div>
+<section class="home-about ">
+
+    <div class="image ">
+        <img src="{% static 'images/about-img.jpg' %} " alt=" ">
+    </div>
+
+    <div class="content ">
+        <h3>about us</h3>
+        <p>We’ve been travelling the world for over 1 years, building a reputation for providing quality travel content that’s inspiring, engaging and informative. With all of our guides and features written and updated by a global network of expert travel
+            writers that includes some of the best names in the business.</p>
+        <a href="{% url 'homepage'%} " class="btn ">read more</a>
+    </div>
+
+</section>
+
+<!-- home about section ends -->
+
+<!-- home packages section starts  -->
+
+<!-- Might not need this part  -->
+<!-- <section class="home-packages ">
+
+    <h1 class="heading-title "> our packages </h1>
+
+    <div class="box-container ">
+
+        <div class="box ">
+            <div class="image ">
+                <img src="{% static 'images/img-1.jpg' %} " alt=" ">
             </div>
-
-            <div class="box ">
-                <div class="image ">
-                    <img src="{% static 'images/img-2.jpg' %} " alt=" ">
-                </div>
-                <div class="content ">
-                    <h3>Kathmandu</h3>
-                    <p>Kathmandu, Nepal's capital, is set in a valley surrounded by the Himalayan mountains. At the heart of the old city’s mazelike alleys is Durbar Square.</p>
-                    <a href="{% url 'homeView'%} " class="btn ">book now</a>
-                </div>
+            <div class="content ">
+                <h3>Janakpur</h3>
+                <p>Janakpurdham or Janakpur is a sub-metropolitan city in Dhanusa District, Madhesh Province, Nepal. The city is a hub for religious and cultural tourism.</p>
+                <a href="{% url 'homeView'%} " class="btn ">book now</a>
             </div>
-
-            <div class="box ">
-                <div class="image ">
-                    <img src="{% static 'images/img-3.jpg' %} " alt=" ">
-                </div>
-                <div class="content ">
-                    <h3>Lumbini</h3>
-                    <p>Lumbinī is a Buddhist pilgrimage site in the Rupandehi District of Lumbini Province in Nepal. It is the place where, according to Buddhist tradition.</p>
-                    <a href="{% url 'homeView'%} " class="btn ">book now</a>
-                </div>
-            </div>
-
         </div>
 
-        <div class="load-more "> <a href="{% url 'homeView'%} " class="btn ">load more</a> </div>
-
-    </section>
-    <!-- etta samma  -->
-    <!-- home packages section ends -->
-
-    <!-- home offer section starts  -->
-
-    <section class="home-offer ">
-        <div class="content ">
-            <h3>upto 50% off</h3>
-            <p>Now With 50% More Discount!......Press the Travel, We Do the Rest.</p>
-            <a href="{% url 'homeView'%} " class="btn ">book now</a>
-
+        <div class="box ">
+            <div class="image ">
+                <img src="{% static 'images/img-2.jpg' %} " alt=" ">
+            </div>
+            <div class="content ">
+                <h3>Kathmandu</h3>
+                <p>Kathmandu, Nepal's capital, is set in a valley surrounded by the Himalayan mountains. At the heart of the old city’s mazelike alleys is Durbar Square.</p>
+                <a href="{% url 'homeView'%} " class="btn ">book now</a>
+            </div>
         </div>
-    </section>
 
-    <!-- home offer section ends -->
-    <!--Gallery section-->
-    <!-- <Section id="welcome_Sec ">
+        <div class="box ">
+            <div class="image ">
+                <img src="{% static 'images/img-3.jpg' %} " alt=" ">
+            </div>
+            <div class="content ">
+                <h3>Lumbini</h3>
+                <p>Lumbinī is a Buddhist pilgrimage site in the Rupandehi District of Lumbini Province in Nepal. It is the place where, according to Buddhist tradition.</p>
+                <a href="{% url 'homeView'%} " class="btn ">book now</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="load-more "> <a href="{% url 'homeView'%} " class="btn ">load more</a> </div>
+
+</section> -->
+<!-- etta samma  -->
+<!-- home packages section ends -->
+
+<!-- home offer section starts  -->
+
+<!-- <section class="home-offer ">
+    <div class="content ">
+        <h3>upto 50% off</h3>
+        <p>Now With 50% More Discount!......Press the Travel, We Do the Rest.</p>
+        <a href="{% url 'homeView'%} " class="btn ">book now</a>
+
+    </div>
+</section> -->
+
+<!-- home offer section ends -->
+<!--Gallery section-->
+<!-- <Section id="welcome_Sec ">
         <div class="container ">
             <h2><span>DISCOVER THE MOST ATTRACTIVE PLACES</span></h2>
             <p>Adventure awaits. Go find it!</p>
@@ -255,133 +175,49 @@
 
 
 
-    <section class="home-offer ">
-        <div class="content ">
-            <br><br><br>
-            <p>
-                <h3><span>DISCOVER THE MOST ATTRACTIVE PLACES</span></h3>
-                <p>Adventure awaits. Go find it!</p>
-            </p>
-        </div>
-    </section>
 
-    <Section id="slides_parent ">
-        <div class="container ">
-            <div class="slides ">
-                <div class="slide_1 ">
-                    <div class="slide_info ">
-                        <p>Dharan</p>
-                    </div>
+<Section id="slides_parent ">
+    <h4 class="heading-title "> Gallery </h4>
+    <div class="container ">
+        <div class="slides ">
+            <div class="slide_1 ">
+                <div class="slide_info ">
+                    <p>Dharan</p>
                 </div>
-                <div class="slide_1 slide_2 ">
-                    <div class="slide_info ">
-                        <p>Jomsom</p>
-                    </div>
+            </div>
+            <div class="slide_1 slide_2 ">
+                <div class="slide_info ">
+                    <p>Jomsom</p>
                 </div>
-                <div class="slide_1 slide_3 ">
-                    <div class="slide_info ">
-                        <p>Mount Manaslu</p>
-                    </div>
+            </div>
+            <div class="slide_1 slide_3 ">
+                <div class="slide_info ">
+                    <p>Mount Manaslu</p>
                 </div>
-                <div class="slide_1 slide_4 ">
-                    <div class="slide_info ">
-                        <p>Bandipur</p>
-                    </div>
+            </div>
+            <div class="slide_1 slide_4 ">
+                <div class="slide_info ">
+                    <p>Bandipur</p>
                 </div>
-                <div class="slide_1 slide_5 ">
-                    <div class="slide_info ">
-                        <p>Langtang National Park</p>
-                    </div>
+            </div>
+            <div class="slide_1 slide_5 ">
+                <div class="slide_info ">
+                    <p>Langtang National Park</p>
                 </div>
-                <div class="slide_1 slide_6 ">
-                    <div class="slide_info ">
-                        <p>Parsa Wildlife Reserve</p>
-                    </div>
+            </div>
+            <div class="slide_1 slide_6 ">
+                <div class="slide_info ">
+                    <p>Parsa Wildlife Reserve</p>
                 </div>
-                <div class="slide_1 slide_7 ">
-                    <div class="slide_info ">
-                        <p>Chitlang</p>
-                    </div>
+            </div>
+            <div class="slide_1 slide_7 ">
+                <div class="slide_info ">
+                    <p>Chitlang</p>
                 </div>
             </div>
         </div>
-    </Section>
+    </div>
+</Section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- footer section starts  -->
-
-    <section class="footer ">
-
-        <div class="box-container ">
-
-            <div class="box ">
-                <h3>quick links</h3>
-                <a href="{% url 'homepage'%} "> <i class="fas fa-angle-right "></i> home</a>
-
-                <a href="{% url 'homeView'%} "> <i class="fas fa-angle-right "></i> package</a>
-
-            </div>
-
-            <div class="box ">
-                <h3>extra links</h3>
-                <a href="# "> <i class="fas fa-angle-right "></i> ask questions</a>
-                <a href="# "> <i class="fas fa-angle-right "></i> about us</a>
-                <a href="# "> <i class="fas fa-angle-right "></i> privacy policy</a>
-                <a href="# "> <i class="fas fa-angle-right "></i> terms of use</a>
-            </div>
-
-            <div class="box ">
-                <h3>contact info</h3>
-                <a href="# "> <i class="fas fa-phone "></i> +123-456-7890 </a>
-                <a href="# "> <i class="fas fa-phone "></i> +111-222-3333 </a>
-                <a href="# "> <i class="fas fa-envelope "></i> PMGroup@gmail.com </a>
-                <a href="# "> <i class="fas fa-map "></i> Nepal, Kathmandu </a>
-            </div>
-
-            <div class="box ">
-                <h3>follow us</h3>
-                <a href="# "> <i class="fab fa-facebook-f "></i> facebook </a>
-                <a href="# "> <i class="fab fa-twitter "></i> twitter </a>
-                <a href="# "> <i class="fab fa-instagram "></i> instagram </a>
-                <a href="# "> <i class="fab fa-linkedin "></i> linkedin </a>
-            </div>
-
-        </div>
-
-        <div class="credit "> created by <span>PM Group</span> | all rights reserved! </div>
-
-    </section>
-
-    <!-- footer section ends -->
-
-
-
-
-
-
-
-
-
-    <!-- swiper js link  -->
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js "></script>
-
-    <!-- custom js file link  -->
-    <script src="{% static 'script.js' %} "></script>
-
-</body>
-
-</html>
+{%endblock%}
