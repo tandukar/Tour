@@ -1,10 +1,11 @@
 
 from django import forms
-from .models import Post , Provinces 
+from .models import Post , enroll
+from django.contrib.auth.forms import UserCreationForm
 
 
 # choices =Provinces.objects.all().values_list('Provinces','Provinces')
-choices = [('province 1','province 1'),('province 2','province 2'),('province 3','province 3'),('province 4','province 4'),('province 5','province 5')]
+choices = [('province 1','province 1'),('province 2','Madhesh Province'),('province 3','Bagmati Province'),('province 4','Gandaki Province'),('province 5','Lumbini Province'),('province 6','Karnali Province'),('province 7','Sudurpashchim Province')]
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
@@ -22,4 +23,23 @@ class PostForm(forms.ModelForm):
 
         }
 
+
+
+# enroll_choices=[]
+class enrollForm(forms.ModelForm):
+
+     
+    #  Post=forms.CharField(max_length=30 ,widget=forms.Select(choices=enroll_choices,attrs={'class': 'form-control'}))
+     username=forms.CharField(max_length=30 ,widget=forms.TextInput(attrs={'class': 'form-control'}))
+     firstname=forms.CharField(max_length=30 ,widget=forms.TextInput(attrs={'class': 'form-control'}))
+     lastname=forms.CharField(max_length=30 ,widget=forms.TextInput(attrs={'class': 'form-control'}))
+     email=forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
+     
+
+
+
+     class Meta:
+         model = enroll 
+     
+         fields = ('username', 'firstname', 'lastname', 'email' )
         

@@ -1,0 +1,56 @@
+ {%block content%} {% if user.is_superuser %}
+<section class="p-4 my-container">
+
+    <div class="p-3 mb-2 bg-primary text-white container-fluid">
+        <h3>Total Users: {{ enrolled_count }}</h3>
+    </div>
+
+
+    <table class="table table-striped table-bordered table-sm">
+        <thread class="thread-dark">
+            <tr>
+
+                <th>User Name</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thread>
+        {% csrf_token %} {% for result in enrolled %}
+        <tr>
+
+            <td>{{result.username}}</td>
+            <td>{{result.firstname}}</td>
+            <td>{{result.lastname}}</td>
+            <td>{{result.email}}</td>
+
+            {% endfor %}
+    </table>
+    {%else%} U SHALL NOT PASS{%endif%}
+</section>
+{%endblock%}
+
+<!-- {%block content%} {% if user.is_superuser %}
+<section class="p-4 my-container">
+
+    <div class="p-3 mb-2 bg-primary text-white container-fluid">
+        <h3>Total Users: {{ enrolled_count }}</h3>
+    </div>
+
+
+    <h1>Packages</h1>
+    {% for post in enrolled %}
+    <hr>
+
+
+    <p> Username: <b>{{post.username}}</b> |
+        <b>Price:</b> Rs. {{post.firstname}}|
+        <b>Province: </b> {{post.lastname}} |
+        <b>Hoster:</b> {{post.email}} |
+        <b>Post:</b> {{post.title}}
+
+    </p>
+    <br> {%else%} U SHALL NOT PASS{%endif%}
+</section>
+{%endblock%} -->

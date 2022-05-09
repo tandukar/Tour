@@ -1,13 +1,15 @@
 
-from urllib import response
-import django
+
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView,CreateView, UpdateView, DeleteView
 from django.contrib.auth import get_user_model
 
-from .forms import  PostForm
-from .models import Post
+from .forms import  PostForm,enrollForm
+from .models import Post,enroll
+
+
+from django.contrib import messages
 
 
 #for generating csv
@@ -33,7 +35,7 @@ class ad_homeView(CreateView):
 class UpdatePostView(UpdateView):
     model = Post
     template_name = 'ad_editPack.html'
-    fields='__all__'
+    form_class = PostForm
 
 class DeletePostView(DeleteView):
     model = Post
@@ -66,9 +68,37 @@ class pack_detailView(DetailView):
    
 
 
-class enroll(DetailView):
+class enroll(ListView):
     model = Post
     template_name = 'enroll.html'
+
+
+def enrolled(request):
+    # model = enroll
+    Model= enroll 
+    enrolled_count = Model.objects.count()
+    enrolled = Model.objects.count()
+    return render(request,'ad_enrolled.html',{'enrolled':enrolled,'enrolled_count':enrolled_count})
+
+    
+   
+
+
+
+#adding info for enrolli
+class EnrollView(CreateView):
+    model = enroll  
+    form_class=enrollForm
+    template_name = 'checkout.html'
+
+    def form_valid(self, form):
+         form.instance.post_id = self.kwargs['pk']
+
+         return super().form_valid(form)
+    success_url = reverse_lazy('enrollView')
+
+  
+
 
 
 def homepage(request):

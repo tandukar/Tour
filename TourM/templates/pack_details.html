@@ -43,7 +43,7 @@
     <br> <b>Price: Rs. {{post.price}}</b>
     <br><b>Hoster:</b> {{post.creator}}
     <br><br><br>
-    <a href="{% url 'enrollView' post.pk %}"><button class="btn btn-success"type="button">Enroll</button></a>
+    <a href="{% url 'checkout' post.pk %}"><button class="btn btn-success"type="button">Enroll</button></a>
     <hr>
     <h2>Comments..</h2>
     {% if not post.comments.all %} Be the first one to comment<a href=''> Comment</a> {%else%} {% for comment in post.comments.all %}

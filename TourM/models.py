@@ -50,4 +50,22 @@ class Comment(models.Model):
         return '%s - %s' %(self.post.title, self.name)
 
 
+
+
+class   enroll(models.Model):
+    post = models.ForeignKey(Post, related_name = "enrolls", on_delete = models.CASCADE, default='')
+    username = models.CharField(max_length=50)
+    firstname = models.CharField(max_length=50)
+    lastname = models.CharField(max_length=50)
+    email=models.EmailField(max_length=80)
+    
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    # USERNAME_FIELD = 'username'
+
+    def __str__(self):
+         return '%s - %s' %(self.post.title, self.username)
+    
+
+
    
