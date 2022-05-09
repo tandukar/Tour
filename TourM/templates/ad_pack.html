@@ -1,0 +1,36 @@
+{%extends 'adminbase.html'%} {%block title%}information{%endblock%} {%block content%} {% if user.is_superuser %}
+<section class="p-4 my-container">
+
+    <div class="p-3 mb-2 bg-primary text-white container-fluid">
+        <h3>Total Packages: {{ post_count }}</h3>
+    </div>
+
+    <h1>Packages</h1>
+    {% for post in Packages %}
+    <hr>
+    <br> {% if post.pack_img%}
+    <img src=" {{post.pack_img.url }}" width="400px"><br> {%endif%}
+    <b><a href="{% url 'pack_detailView' post.pk %}">{{post.title}}</a></b>
+    <br> Description: A Trip to {{post.title}}, for {{post.days}} days<a href="{% url 'pack_detailView' post.pk %}">Read more...</a>
+
+    <p> Days: <b>{{post.days}}</b> |
+        <b>Price:</b> Rs. {{post.price}}|
+        <b>Province: </b> {{post.Provinces}} |
+        <b>Hoster:</b> {{post.Hoster}} |
+        <b>Where you'll Stay:</b> {{post.Accomodation}} |
+        <b>Operated in:</b> English
+    </p>
+    <br>
+    <a href="{% url 'UpdatePost' post.pk %}"><span class="btn btn-success">Edit</span></a>
+
+    <a href="{% url 'DeletePost' post.pk %}"><span class="btn btn-danger">Delete</span></a>
+
+    <br> {% endfor%} {%else%}
+
+    <h1>you are not allowed here</h1>
+    <a href="{%url 'homepage'%}">Redirect</a>{%endif%}
+
+
+
+</section>
+{%endblock%}

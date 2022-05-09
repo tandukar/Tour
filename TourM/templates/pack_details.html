@@ -1,30 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+{%extends 'base.html'%} {%block title%}Package details{%endblock%} {%block content%} {% load static%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
-    <title>Document</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-</head>
 
-<body>
+<link rel="stylesheet" type="text/css" href="{% static 'carousel.css' %}">
 
-    <p>profile: {{request.user}}</p>
-    <a href="{% url 'homeView'%}">Back</a>
-    <br> {% if post.pack_img%}
-    <img src=" {{post.pack_img.url }}" width="400px"><br> {%endif%}
-    <h1>{{post.title}}</h1>
+
+<section class="container">
+
+
+    <h2>{{post.title}}</h2>
+    <div class="wrapper">
+
+        <div class="carousel">
+
+            <button type="button" id="carousel-arrow-prev" class="carousel-arrow carousel-arrow-prev" arial-label="Image précédente"></button>
+            <button type="button" id="carousel-arrow-next" class="carousel-arrow carousel-arrow-next" arial-label="Image suivante"></button> {% if post.pack_img%}
+            <img id="carousel-0" class="carousel-img carousel-img-displayed" src="{{post.pack_img.url }}" alt="image1" /> {%else%}
+            <img id="carousel-0" class="carousel-img carousel-img-displayed" src="{% static 'images/noimage.jpg' %} " alt="image1" /> {%endif%} {% if post.pack_img1%}
+            <img id="carousel-1" class="carousel-img carousel-img-noDisplay" src="{{post.pack_img1.url }}" alt="image2" /> {%else%}
+            <img id="carousel-1" class="carousel-img carousel-img-noDisplay" src="{% static 'images/noimage.jpg' %} " alt="image1" /> {%endif%} {% if post.pack_img2%}
+            <img id="carousel-2" class="carousel-img carousel-img-noDisplay" src="{{post.pack_img2.url }}" alt="image3" />{%else%}
+            <img id="carousel-2" class="carousel-img carousel-img-noDisplay" src="{% static 'images/noimage.jpg' %} " alt="image1" /> {%endif%} {% if post.pack_img3%}
+            <img id="carousel-3" class="carousel-img carousel-img-noDisplay" src="{{post.pack_img3.url }}" alt="image4" />{%else%}
+            <img id="carousel-3" class="carousel-img carousel-img-noDisplay" src="{% static 'images/noimage.jpg' %} " alt="image1" /> {%endif%} {% if post.pack_img4%}
+            <img id="carousel-4" class="carousel-img carousel-img-noDisplay" src="{{post.pack_img4.url }}" alt="image5" />{%else%}
+            <img id="carousel-4" class="carousel-img carousel-img-noDisplay" src="{% static 'images/noimage.jpg' %} " alt="image1" /> {%endif%}
+
+        </div>
+
+    </div>
+
+    <br>
+
     <hr>
+    <h3>{{post.title}}</h3>
     <br>{{post.body | safe }}
     <br><b>Province:</b> {{post.Provinces}}
     <br> Days: <b>{{post.days}}</b>
     <br> <b>Price: Rs. {{post.price}}</b>
     <br><b>Hoster:</b> {{post.creator}}
     <br><br><br>
-    <a href="{% url 'enrollView' post.pk %}"><button type="button">Enroll</button></a>
+    <a href="{% url 'checkout' post.pk %}"><button class="btn btn-success"type="button">Enroll</button></a>
     <hr>
     <h2>Comments..</h2>
     {% if not post.comments.all %} Be the first one to comment<a href=''> Comment</a> {%else%} {% for comment in post.comments.all %}
@@ -32,7 +51,7 @@
     <hr>
 
 
+    <script src="{% static 'carousel.js' %} "></script>
+</section>
 
-</body>
-
-</html>
+{%endblock%}
