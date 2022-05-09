@@ -403,6 +403,19 @@ section{
    font-size: 1.7rem;
    padding-top: 1rem;
 }
+.container {
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 3rem;
+}
+.container br{
+   flex: 1 1 41rem;
+   text-align: center;
+   font-size: 3rem;
+   line-height: 2;
+   padding: 1rem 0;
+}
 
 .home-about{
    display: flex;
