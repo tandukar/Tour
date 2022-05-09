@@ -5,27 +5,33 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 # choices =Provinces.objects.all().values_list('Provinces','Provinces')
-choices = [('province 1','province 1'),('province 2','Madhesh Province'),('province 3','Bagmati Province'),('province 4','Gandaki Province'),('province 5','Lumbini Province'),('province 6','Karnali Province'),('province 7','Sudurpashchim Province')]
+choices = [('in Desc','in Desc'),('province 1','province 1'),('province 2','Madhesh Province'),('province 3','Bagmati Province'),('province 4','Gandaki Province'),('province 5','Lumbini Province'),('province 6','Karnali Province'),('province 7','Sudurpashchim Province')]
+choices1 = [('in Desc','in Desc'),('Hotel','Hotel'),('Hostel','Hostel'),('Resort','Resort')]
+choices2 = [('in Desc','in Desc'),('Bus','Bus'),('Flight','Flight'),('Hiace','Hiace')]
+choices3 = [('----','---'),('Host  Pvt.Ltd','Host  Pvt.Ltd'),('One Life Adventures','One Life Adventures'),('Herald Travels','Herald Travels')]
+
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'Hoster', 'body', 'days', 'price','Provinces','Size','Accomodation' ,'pack_img','pack_img1','pack_img2','pack_img3','pack_img4')
+        fields = ('title', 'Hoster', 'body', 'days', 'price','Provinces','Size','Transportation' ,'Accomodation','pack_img','pack_img1','pack_img2','pack_img3','pack_img4')
 
         widgets = {
             'title': forms.TextInput( attrs={'class': 'form-control'}),
-            'Hoster': forms.TextInput( attrs={'class': 'form-control'}),
+            'Hoster': forms.Select(choices = choices3,attrs={'class': 'form-control'}),
             'days': forms.NumberInput( attrs={'class': 'form-control'}),
             'Provinces': forms.Select(choices = choices,attrs={'class': 'form-control'}),
             'price': forms.TextInput( attrs={'class': 'form-control'}),
             'body': forms.Textarea( attrs={'class': 'form-control'}),
             'Size': forms.NumberInput ( attrs={'class': 'form-control'}),
-            'Accomodation': forms.TextInput( attrs={'class': 'form-control'}),
+            'Transportation': forms.Select(choices = choices2,attrs={'class': 'form-control'}),
+            'Accomodation': forms.Select(choices = choices1,attrs={'class': 'form-control'}),
+            
 
         }
 
 
 
-# enroll_choices=[]
+
 class enrollForm(forms.ModelForm):
 
      

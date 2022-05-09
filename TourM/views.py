@@ -68,25 +68,24 @@ class pack_detailView(DetailView):
    
 
 
-class enroll(ListView):
+class enrollView(ListView):
     model = Post
     template_name = 'enroll.html'
 
 
-def enrolled(request):
-    # model = enroll
-    Model= enroll 
-    enrolled_count = Model.objects.count()
-    enrolled = Model.objects.count()
-    return render(request,'ad_enrolled.html',{'enrolled':enrolled,'enrolled_count':enrolled_count})
 
+def  En_usersView(request):
     
-   
+    model= enroll 
+    enrolled_count = model.objects.count()
+    enrolled = model.objects.all()
+    return render(request,'ad_enrolled.html',{'enrolled_count':enrolled_count,'enrolled':enrolled})
+
 
 
 
 #adding info for enrolli
-class EnrollView(CreateView):
+class paymentView(CreateView):
     model = enroll  
     form_class=enrollForm
     template_name = 'checkout.html'

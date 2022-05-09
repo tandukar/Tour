@@ -39,9 +39,12 @@
     <h3>{{post.title}}</h3>
     <br>{{post.body | safe }}
     <br><b>Province:</b> {{post.Provinces}}
-    <br> Days: <b>{{post.days}}</b>
-    <br> <b>Price: Rs. {{post.price}}</b>
-    <br><b>Hoster:</b> {{post.creator}}
+    <br> <b>Days: </b>{{post.days}}
+    <br> <b>Price:</b> Rs. {{post.price}}
+    <br><b>Hoster:</b> {{post.Hoster}}
+    <br><b>Max-Size:</b> {{post.Size}}
+    <br><b>Where you'll stay:</b> {{post.Accomodation}}
+    <br><b>Transportation:</b> {{post.Transportation}}
     <br><br><br>
     <a href="{% url 'checkout' post.pk %}"><button class="btn btn-success"type="button">Enroll</button></a>
     <hr>
