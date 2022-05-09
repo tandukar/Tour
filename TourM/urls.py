@@ -20,6 +20,9 @@ urlpatterns = [
     path('user_pdf', views.user_pdf, name="user_pdf"),
 
     path('enrolled/', views.En_usersView, name="enrolled"),
+
+
+    path('aboutus/', views.aboutus, name="aboutus"),
     
     path('',views.homepage, name="homepage"),
     

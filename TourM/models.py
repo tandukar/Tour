@@ -60,6 +60,7 @@ class   enroll(models.Model):
     firstname = models.CharField(max_length=50)
     lastname = models.CharField(max_length=50)
     email=models.EmailField(max_length=80)
+    Size=models.IntegerField(max_length=2)
     
     date_added = models.DateTimeField(auto_now_add=True)
 

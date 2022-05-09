@@ -100,6 +100,11 @@ class paymentView(CreateView):
 
 
 
+def aboutus(request):
+    return render(request, 'aboutus.html')
+
+
+
 def homepage(request):
     return render(request, 'index.html')
 
