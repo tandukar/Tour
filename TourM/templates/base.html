@@ -24,7 +24,7 @@
 
     <section class="header">
 
-        <a href="home.html" class="logo"> <img src="{% static 'images/ghumghamnp.png' %}" height="50px"></a>
+        <a href="{% url 'homepage'%} " class="logo"> <img src="{% static 'images/logo.png' %}" height="100px"></a>
 
         <nav class="navbar">
             {% if request.user.is_authenticated %}
@@ -34,6 +34,7 @@
 
 
             <a href="{% url 'ad_homeView'%}">Admin</a>{%endif%}
+            <a href="{% url 'seasons'%}">Seasons</a>    
             <a href="{% url 'logout'%}">Logout</a>{%else%}
             <a href="{% url 'homepage'%}">Home</a>
             <a href="{% url 'homeView'%}">packages</a>
@@ -69,8 +70,7 @@
 
             <div class="box ">
                 <h3>extra links</h3>
-                <a href="# "> <i class="fas fa-angle-right "></i> ask questions</a>
-                <a href="# "> <i class="fas fa-angle-right "></i> about us</a>
+                <a href="{% url 'aboutus' %} "> <i class="fas fa-angle-right "></i> about us</a>
                 <a href="# "> <i class="fas fa-angle-right "></i> privacy policy</a>
                 <a href="# "> <i class="fas fa-angle-right "></i> terms of use</a>
             </div>
@@ -88,7 +88,6 @@
                 <a href="# "> <i class="fab fa-facebook-f "></i> facebook </a>
                 <a href="# "> <i class="fab fa-twitter "></i> twitter </a>
                 <a href="# "> <i class="fab fa-instagram "></i> instagram </a>
-                <a href="# "> <i class="fab fa-linkedin "></i> linkedin </a>
             </div>
 
         </div>

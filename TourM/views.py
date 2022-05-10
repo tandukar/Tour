@@ -132,6 +132,30 @@ def user_csv(request):
        writer.writerow([user.username, user.first_name, user.last_name, user.email])
 
    return response
+
+
+#generate enrolled users csv
+
+def enroll_csv(request):
+   response = HttpResponse(content_type = 'text/csv')
+   response['Content-Disposition'] = 'attactment; filename: enrolled.csv'
+ 
+
+   #create a csv writer
+   writer = csv.writer(response)
+
+
+ # configure model
+    
+   users = enroll.objects.all()
+
+   writer.writerow(['User Name','First Name', 'Last Name', 'Email', 'post', 'size', 'purchased date'])
+
+
+   for user in users:
+       writer.writerow([user.username, user.firstname, user.lastname, user.email, user.post, user.Size, user.date_added])
+
+   return response
       
 
       
