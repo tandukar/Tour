@@ -24,7 +24,7 @@
 
     <section class="header">
 
-        <a href="home.html" class="logo"> <img src="{% static 'images/logo.png' %}" height="100px"></a>
+        <a href="{% url 'homepage'%} " class="logo"> <img src="{% static 'images/logo.png' %}" height="100px"></a>
 
         <nav class="navbar">
             {% if request.user.is_authenticated %}
