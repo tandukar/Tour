@@ -40,6 +40,7 @@ class enrollForm(forms.ModelForm):
      firstname=forms.CharField(max_length=30 ,widget=forms.TextInput(attrs={'class': 'form-control'}))
      lastname=forms.CharField(max_length=30 ,widget=forms.TextInput(attrs={'class': 'form-control'}))
      email=forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
+     Size=forms.NumberInput ( attrs={'class': 'form-control'}),
      
 
 
@@ -47,5 +48,5 @@ class enrollForm(forms.ModelForm):
      class Meta:
          model = enroll 
      
-         fields = ('username', 'firstname', 'lastname', 'email' )
+         fields = ('username', 'firstname', 'lastname', 'email','Size' )
         

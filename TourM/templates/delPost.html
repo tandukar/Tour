@@ -6,7 +6,7 @@
 
 <div class="form-group">
     <form method="POST" enctype="multipart/form-data">
-        {%csrf_token%}<img src=" {{post.pack_img.url }}" width="400px"> {{post.body | safe}}
+        {%csrf_token%} {% if post.pack_img%}<img src=" {{post.pack_img.url }}" width="400px"> {%endif%}{{post.body | safe}}
         <button class="btn btn-danger">delete</button>
     </form>
 

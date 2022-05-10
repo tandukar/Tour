@@ -24,7 +24,7 @@ class Post(models.Model):
     days = models.PositiveIntegerField(validators=[MaxValueValidator(100),MinValueValidator(1)])
     price = models.IntegerField(default='',null=False)
     Provinces = models.CharField(default='in_desc', max_length=255, null=False)
-    Size = models.PositiveIntegerField(default='1', validators=[MaxValueValidator(100),MinValueValidator(1)])      #group size {if paxi availability add garne bhe useful}
+    Size = models.PositiveIntegerField(default='1', validators=[MaxValueValidator(100),MinValueValidator(11)])      #group size {if paxi availability add garne bhe useful}
     Hoster=models.CharField(max_length=255, null=False)
     Accomodation= models.CharField(default='', max_length=255, null=False)
     Transportation= models.CharField(default='', max_length=255, null=False)
@@ -60,7 +60,7 @@ class   enroll(models.Model):
     firstname = models.CharField(max_length=50)
     lastname = models.CharField(max_length=50)
     email=models.EmailField(max_length=80)
-    Size=models.IntegerField(max_length=2)
+    Size=models.PositiveIntegerField(default='1',validators=[MaxValueValidator(10),MinValueValidator(1)])
     
     date_added = models.DateTimeField(auto_now_add=True)
 

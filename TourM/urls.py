@@ -17,6 +17,7 @@ urlpatterns = [
     path('details/<int:pk>/checkout', paymentView.as_view(), name="checkout"),
 
     path('user_csv', views.user_csv, name="user_csv"),
+    path('enroll_csv', views.enroll_csv, name="enroll_csv"),
     path('user_pdf', views.user_pdf, name="user_pdf"),
 
     path('enrolled/', views.En_usersView, name="enrolled"),

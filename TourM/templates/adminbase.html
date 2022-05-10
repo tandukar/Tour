@@ -23,7 +23,7 @@
 
             <a href="#" class="nav-link text-light pl-4"> Profile: {{request.user}}</a>
             <li class="nav-item w-100">
-                <a href="{%url 'ad_homeView'%}" class="nav-link text-light pl-4">Home</a>
+                <a href="{%url 'ad_homeView'%}" class="nav-link text-light pl-4">Dash</a>
             </li>
 
 
@@ -34,11 +34,12 @@
                     <li><a href="{%url 'enrolled'%}" class="dropdown-item text-light pl-4 p-2">Enrolled</a></li>
                     <li><a href="{%url 'PackView'%}" class="dropdown-item text-light pl-4 p-2">Packages</a></li>
                     <li><a href="{%url 'user_csv'%}" class="dropdown-item text-light pl-4 p-2">User CSV File</a></li>
+                    <li><a href="{%url 'enroll_csv'%}" class="dropdown-item text-light pl-4 p-2">Enrolled CSV File</a></li>
                     <li><a href="{%url 'user_pdf'%}" class="dropdown-item text-light pl-4 p-2">User Pdf File</a></li>
                 </ul>
             </li>
             <li class="nav-item w-100">
-                <a href="{%url 'homepage'%}" class="nav-link text-light pl-4">Back</a>
+                <a href="{%url 'homepage'%}" class="nav-link text-light pl-4">Home</a>
             </li>
             <li class="nav-item w-100">
                 <a href="{%url 'logout'%}" class="nav-link text-light pl-4">Logout</a>
